@@ -172,6 +172,7 @@ def obtenerMensaje(cont):
     """
     mensajeFinal = ["Campaña con poca afluencia",
     "Campaña moderada siga adelante", "Excelente campaña"]
+    cadenaFinal = ""
     if ((cont >= 1) and (cont <=5)):
         cadenaFinal = mensajeFinal[0]
     elif ((cont >= 6) and (cont <= 15)):
@@ -196,7 +197,7 @@ def principal():
         - Si se ingresa 7 se llamará a crearFlickr
     """
     bandera = True
-    contadorCuentas = 0
+    contadorCuentas = 1
     while (bandera):
         opcion1 = int(input("Ingresar 1 para crear una cuenta en Facebook\n"\
         f"Ingresar 2 para crear una cuenta de Twitter\n"\
