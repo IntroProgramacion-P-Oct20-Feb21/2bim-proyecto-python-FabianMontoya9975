@@ -3,11 +3,18 @@
     Segundo Bimestre
 
     Problemática:
+
+    Generar un solución en lenguaje de programación Python
+    Que permita ingresar nuevas cuentas de diversas plataformas.
 """
 
 def crearFacebook():
     """
         explicación de método
+
+        - método crearFacebook - (método que devuelve un valor)
+        - Facebook (se necesita los siguientes datos: nombre de usuario,
+        edad, ciudad, pais, correo electrónico)
     """
     nombreUsuario = input("Usted escogió la opción crear cuenta en "\
     "Facebook\nIngresar el nombre de Usuario: ")
@@ -26,6 +33,10 @@ def crearFacebook():
 def crearTwitter():
     """
         explicación de método
+
+        - método crearTwitter - (método que no devuelve un valor)
+        - Twitter (se necesita los siguientes datos: nombre de usuario,
+        nombres, apellidos, edad, ciudad, pais, idioma, correo electrónico)
     """
     nombreUsuario = input("Usted escogió la opción crear cuenta en Twitter"\
     "\nIngresar el nombre de Usuario: ")
@@ -49,6 +60,10 @@ def crearTwitter():
 def crearWhatsapp():
     """
         explicación de método
+
+        - método crearWhatsapp - - (método que devuelve un valor)
+        - Whatsapp (se necesita los siguientes datos: nombre de usuario,
+        número de teléfono, edad, ciudad, pais)
     """
     nombreUsuario = input("Usted escogió la opción crear cuenta en Whatsapp"\
     "\nIngresar el nombre de Usuario: ")
@@ -67,6 +82,10 @@ def crearWhatsapp():
 def crearTelegram():
     """
         explicación de método
+
+        - método crearTelegram - (método que no devuelve un valor)
+        - Telegram (se necesita los siguientes datos: nombre de usuario,
+        número de teléfono, ciudad, pais, área de interés)
     """
     nombreUsuario = input("Usted escogió la opción crear cuenta en Telegram"\
     "\nIngresar el nombre de Usuario: ")
@@ -84,6 +103,10 @@ def crearTelegram():
 def crearSignal():
     """
         explicación de método
+
+        - método crearSignal- (método que devuelve un valor)
+        - Signal (se necesita los siguientes datos: nombre de usuario,
+        número de teléfono, ciudad, pais, hobby principal)
     """
     nombreUsuario = input("Usted escogió la opción crear cuenta en Signal\n"\
     "Ingresar el nombre de Usuario: ")
@@ -102,6 +125,10 @@ def crearSignal():
 def crearInstagram():
     """
         explicación de método
+
+        - método crearInstagram - (método que no devuelve un valor)
+        - Instagram (se necesita los siguientes datos: nombre de usuario,
+        ciudad, edad, correo electrónico)
     """
     nombreUsuario = input("Usted escogió la opción crear cuenta en Instagram"\
     f"\nIngresar el nombre de Usuario: ")
@@ -117,6 +144,10 @@ def crearInstagram():
 def crearFlickr():
     """
         explicación de método
+
+        - método crearFlickr - (método que devuelve un valor)
+        - Flickr (se necesita los siguientes datos: nombre de usuario,
+        correo electrónico)
     """
     nombreUsuario = input("Usted escogió la opción crear cuenta en Flickr\n"\
     "Ingresar el nombre de Usuario: ")
@@ -127,6 +158,18 @@ def crearFlickr():
     return cadena
 
 def obtenerMensaje(cont):
+    """
+        explicación de método
+
+        a. Si el número de cuentas creadas está en el rango de 1 a 5 el
+        mensaje será: Campaña con poca afluencia
+
+        b. Si el número de cuentas creadas está en el rango de 6 a 15 el
+        mensaje será: Campaña moderada siga adelante
+
+        c. Si el número de cuentas creadas está en el rango de 16 en
+        adelante, el mensaje será: Excelente campaña
+    """
     mensajeFinal = ["Campaña con poca afluencia",
     "Campaña moderada siga adelante", "Excelente campaña"]
     if ((cont >= 1) and (cont <=5)):
@@ -136,12 +179,26 @@ def obtenerMensaje(cont):
     else:
         if ((cont >= 16)):
             cadenaFinal = mensajeFinal[2]
+    return cadenaFinal
 
 def principal():
+    """
+        explicación de método
+
+        En la función principal se presenta un ciclo
+        repetitivo que presenta un menú de opciones:
+        - Si se ingresa 1 se llamará a crearFacebook
+        - Si se ingresa 2 se llamará a crearTwitter
+        - Si se ingresa 3 se llamará a crearWhatsapp
+        - Si se ingresa 4 se llamará a crearTelegram
+        - Si se ingresa 5 se llamará a crearSignal
+        - Si se ingresa 6 se llamará a crearInstagram
+        - Si se ingresa 7 se llamará a crearFlickr
+    """
     bandera = True
     contadorCuentas = 0
     while (bandera):
-        opcion1 = int(input("Igresar 1 para crear una cuenta en Facebook\n"\
+        opcion1 = int(input("Ingresar 1 para crear una cuenta en Facebook\n"\
         f"Ingresar 2 para crear una cuenta de Twitter\n"\
         f"Ingresar 3 para crear una cuenta en Whatsapp\n"\
         f"Ingresar 4 para crear una cuenta en Telegram\n"\
@@ -164,17 +221,24 @@ def principal():
             print(crearFlickr())
         else :
             print("Opción incorrecta.")
+            contadorCuentas = contadorCuentas - 1
+        # En cada iteración del ciclo; se pregunta al usuario si se
+        # desea salir del ciclo.
         opcion2 = input("Escriba SI para crear mas cuentas\n"\
         "Escriba NO para ya no crear mas cuentas: ")
         opcion2 = opcion2.lower()
         if (opcion2 == "no"):
             bandera = False
             print(obtenerMensaje(contadorCuentas))
+            """
+                Cuando el usuario termina el ciclo repetitivo se debe
+                presentar un mensaje con base al número total de cuentas
+                creadas. Se debe usar el número total de cuentas como
+                argumento (entero) de una función llamada obtenerMensaje
+            """
         else:
-            if (opcion2 == "si"):
-                contadorCuentas = contadorCuentas + 1
-            else:
-                print("Opcion incorrecta.")
+            contadorCuentas = contadorCuentas + 1
+
 
 # Aquí empieza el proceso cuando se ejecuta por consola
 # el archivo
